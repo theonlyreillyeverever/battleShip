@@ -1,0 +1,310 @@
+.header{
+    width:100%;
+    height: 150px;
+    background-color: aliceblue;
+}
+
+body{
+    background-color: black;
+}
+
+.main-frame{
+    width:100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-frame >div{
+    width: 70%;
+    margin:auto;
+    height: 500px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+}
+
+
+.board{
+    width: 630px;
+    height: 631px;
+        margin: auto;
+    padding-left: 5px;
+    background-color: black;
+    padding-right: 5px;
+    transform: scale(0.8, 0.7) skew(-33deg, 13deg);
+    margin-top: 100px;
+}
+
+.hit
+{
+    background-color: crimson!important;
+}
+
+.blue{
+    background-color: cornflowerblue!important;
+}
+.red{
+    background-color: rgb(237, 100, 118)!important;
+    background-color: rgb(237, 100, 118)!important;
+    transform: scale(1.0) scaleY(1.1) skew(45deg, 0deg);
+    left: -32px;
+    bottom: 3px;
+}
+
+.grey{
+    background-color: rgb(173, 173, 173)!important;
+
+}
+
+.green{
+    background-color: rgb(123, 237, 100)!important;
+
+}
+.black{
+    background-color: rgb(57, 60, 65)!important;
+
+}
+/* "red", "blue", "grey", "green", "black"  */
+
+.square{
+    width: 61px;
+    height: 61px;
+    border: 0.1px solid rgb(80 80 80);
+    float: left;
+    overflow: none;
+    /*position: relative;
+    z-index: 2;
+    /* border-radius: 15px; */
+    /* margin: 5px; */
+    transition: 1s all;
+}
+
+.square-load{
+    transform: scale(1);
+
+}
+
+.square > h1{
+    position: relative;
+    color: white
+}
+
+.square:hover{
+
+}
+
+.poll{
+    height: 0px;
+    width: 10px;
+    background: rgb(255 255 255);
+    margin: auto;
+    position: absolute;
+    bottom: 21px;
+    left: -8px!important;
+    /* left: 0px; */
+    transform: scale(1.0) scaleY(1.1) skew(39deg, 0deg);
+    transition: 1s height;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    /* border-bottom-left-radius: 16px; */
+    border-bottom-right-radius: -6px;
+}
+
+.rocket{
+    width: 0px;
+    height:10px;
+    background-color: tomato;
+    position: absolute;
+    top:0;
+    transition: 1s all;
+}
+
+.rocket-grow{
+    width:20px;
+    height:30px;
+}
+
+
+.rocket-bomb{
+    width:20px;
+    height: 20px;
+    border-radius: 30%;
+    background-color: violet;
+    transition: 1s opacity;
+    opacity: 0;
+}
+
+.bomb-grow{
+    opacity: 1;
+}
+
+@keyframes example {
+    from {
+        position: relative;
+        bottom: 0px!important;}
+    to {
+        position: relative;
+        bottom: 300px!important;}
+  }
+
+
+
+.take-off{
+    position: relative;
+    transition: 2s bottom!important;
+    bottom:0px;
+}
+.take-off-go{
+    bottom: 1000px!important;
+
+
+}
+
+.poll > div{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.poll > div > div{
+    position: absolute;
+    top:0;
+    height: 10px;
+    width:100%;
+    border-radius: 50%;
+    background: brown;
+}
+.grow-poll{
+    height:90px;
+    left:-30px
+}
+
+.flag{
+    width: 0px;
+    height: 20px;
+    background-color: #8282a2;
+    transition: 1s all;
+    position: absolute;
+    top: 0;
+    left: 10px;
+}
+
+.flag-grow{
+    width:30px
+}
+
+.tag{
+
+    width: 100px;
+    height: 30px;
+    background-color: coral;
+    opacity: 0;
+    transition: 1s all;
+     bottom: 0px;
+    position: relative;
+    border-radius: 16px;
+    transform: scale(1.0) scaleY(1.1) skew(52deg, -1deg);
+}
+
+.red > .tag{
+    transform: scale(1.0) scaleY(1.1) skew(0deg, 0deg)!important;
+
+}
+
+.tag > span{
+  border-bottom: 20px solid transparent;
+  border-left:20px solid coral;
+  border-right: 20px solid transparent;
+  position: relative;
+  bottom:-14px;
+  float: left;
+}
+
+.square:hover > .tag{
+    opacity: 1;
+    bottom:10px;
+}
+
+.square > span{
+    width:50px;
+    height:50px;
+    background-color: tomato;
+    float: left;
+}
+
+.dot{
+    position: relative;
+    left:18px;
+    bottom: 25px;
+}
+
+.ship{
+    width:150px;
+    height:50px;
+    border: 2px solid rgb(235, 34, 34);
+    background-color: red;
+    position: relative;
+    float: left;
+    z-index: -1;
+}
+
+#ship1{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    float: left;
+    margin: 6px;
+}
+
+#ship2{
+    width: 50px;
+    height: 50px;
+    background-color: goldenrod;
+    float: left;
+    margin: 6px;
+
+}
+
+#ship3{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    float: left;
+    margin: 6px;
+
+}
+
+.hit-point{
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left:20px;
+}
+
+.rotate{
+    position: relative;
+    left:-32px;
+    
+    transform: rotate(90deg);
+}
+
+.box-container{
+    width: 700px;
+    height: 700px;
+    margin: auto;
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    margin:auto;
+}
