@@ -1,3 +1,7 @@
+# Playable online version 0.2.0 available down below
+
+tinyurl.com/c4tzbe9m
+
 
 
 # Getting Started with Create React App
