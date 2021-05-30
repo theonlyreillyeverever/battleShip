@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef, useCallback, useContext} from "react
 import firebase from "firebase";
 import Back from "../Pages/Back"
 import { Redirect } from "react-router-dom";
-import { AuthContext, AuthProvider } from "/Users/patrick/React_Projects/BattleShipReact/battle-ship-js/src/firebase/Auth";
+import { AuthContext, AuthProvider } from "../firebase/Auth";
 
 const SetUsername = ({props} : any) => {
     const [usernameSET, SetUsernameSet] = useState<boolean>(false)

@@ -17,9 +17,16 @@
 .env.development.local
 .env.test.local
 .env.production.local
+<<<<<<< Updated upstream
+=======
+.env
+>>>>>>> Stashed changes
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< Updated upstream
 
 .DS_Store
+=======
+>>>>>>> Stashed changes

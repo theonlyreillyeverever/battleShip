@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Route, Switch,Link} from "react-router-dom";
 import { useContext, useCallback ,useEffect, useState, useRef } from "react";
-import { AuthContext, AuthProvider } from "/Users/patrick/React_Projects/BattleShipReact/battle-ship-js/src/firebase/Auth";
+import { AuthContext, AuthProvider } from "../firebase/Auth";
 import firebase from "firebase";
 import InboxArea from "../Pages/Inbox"
 import LoadingBar from "../Pages/Loading"

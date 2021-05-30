@@ -1,6 +1,6 @@
 
 import { useContext, useCallback ,useEffect, useState } from "react";
-import { AuthContext, AuthProvider } from "/Users/patrick/React_Projects/BattleShipReact/battle-ship-js/src/firebase/Auth";
+import { AuthContext, AuthProvider } from "../firebase/Auth";
 import firebase from "firebase";
 import { BrowserRouter as Router, Route, Switch,Link } from "react-router-dom";
 import userEvent from "@testing-library/user-event";

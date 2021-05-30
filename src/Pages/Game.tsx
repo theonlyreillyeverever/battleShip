@@ -1,12 +1,10 @@
-import { Link, Redirect, RouteComponentProps } from "react-router-dom";
-import React, { useContext, useCallback, useEffect, useState } from "react";
-import { AuthContext, AuthProvider } from "/Users/patrick/React_Projects/BattleShipReact/battle-ship-js/src/firebase/Auth";
+import { Link, RouteComponentProps } from "react-router-dom";
+import  { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../firebase/Auth";
 import firebase from "firebase";
-import Board from "./Board"
 import Tag from "./Tag"
 import "../Pages/board.css"
-import { on } from "process";
-import InboxArea from "../Pages/Inbox"
+
 import Chat from "../Componentss/Chat";
 
 
