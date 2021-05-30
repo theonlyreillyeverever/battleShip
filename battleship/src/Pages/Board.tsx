@@ -1,9 +1,6 @@
 import { type } from 'os';
 import {useState, useEffect} from 'react'
-import { JsxEmit } from 'typescript';
-import App from './App'
-import Web from './webSocket'
-let socket = new WebSocket('ws://localhost:5001/');
+
 //WebSocket('ws://192.168.1.20:5001/');
 
 const Tag = ({x, y} : any) => {
@@ -223,7 +220,7 @@ const NewBoard = () : JSX.Element => {
                 const id = boardCopy[0][xy].ship.id
                 //alert(id)
                     for(let i=0; i<id;i++){
-                        if(root.x == boardCopy[0][xy].x && root.y == boardCopy[0][xy].y){
+                        if(root.x === boardCopy[0][xy].x && root.y === boardCopy[0][xy].y){
                             boardCopy[0][xy+i].ship = {
                                 id: -1, name : '', size : SIZE.NULL, color: "", coordinatesSelect : {}, sunk : false
                             };
@@ -300,7 +297,7 @@ const NewBoard = () : JSX.Element => {
 
 
              for(let i=0; i<id;i++){
-                 if(root.x == boardCopy[0][xy].x && root.y == boardCopy[0][xy].y){
+                 if(root.x === boardCopy[0][xy].x && root.y === boardCopy[0][xy].y){
                      boardCopy[0][xy+i].ship = {
                          id: id, name : "Ship", size : SizeList[id], color: ColorList[id], coordinatesSelect : {x : x, y : y}, sunk : false
                      };
@@ -312,11 +309,7 @@ const NewBoard = () : JSX.Element => {
                     };
                      boardCopy[0][xy+i].hasShip = true;
                  }
-                // console.log(boardCopy[0][xy+i])
              }
-
-            // setBoard(boardCopy)
-
             setRoNum(roNum-1)
             break;
             }
@@ -336,14 +329,14 @@ const NewBoard = () : JSX.Element => {
             const idShip = shipLocationsCopy[i].ship.id
                 for(let j=0;j<shipLocationsCopy[i].ship.id;j++){
 
-                     if(idShip == shipLocationsCopy[j].ship.id && shipLocationsCopy[j].hit){
+                     if(idShip === shipLocationsCopy[j].ship.id && shipLocationsCopy[j].hit){
                         shipLocationsCopy[j].ship.sunk = true;
                         console.log(shipLocationsCopy[j].ship)
                         //console.log(shipLocationsCopy[j].ship)
                         count++;
                     }
 
-                    if(count == idShip){
+                    if(count === idShip){
                         //setShipLoctionList(shipLocationsCopy);
                        // return true;
                     }
@@ -452,7 +445,6 @@ const NewBoard = () : JSX.Element => {
                 <input onChange={e => setInputX(e.target.value)}/>
                 <input onChange={e => setInputY(e.target.value)}/>
                 <button onClick={() => { 
-                    socket.send(JSON.stringify(message()))
             }}>Attack</button>
             </div>
         )
@@ -525,24 +517,6 @@ const NewBoard = () : JSX.Element => {
     }
 
     const RenderBoard = () : JSX.Element =>{
-
-        window.onload = ()=>
-        {
-            UpdateBoard()
-
- 
-     
-           // console.log("open")
-            const obj = {id: 0, message : "ddd"}
-            socket.send(JSON.stringify(obj))
-            let loadBoardSequence = 0;
-       
-
-
-        }
-
-
-
 
 
         return (
@@ -626,25 +600,7 @@ const NewBoard = () : JSX.Element => {
         }
     }
 
-    socket.onmessage = (message) =>{
-        const incoming = JSON.parse(message.data)
-       // console.log(incoming)
-        switch(incoming.id){
-            case "attack":{
-                setIncomingAttack({ x: incoming.x, y : incoming.y})
-                PlayerHit(incoming.x, incoming.y);
-                setSelectedCords({x : incoming.x, y : incoming.y})
 
-                break;
-            }
-            case "hit":{
-
-                    alert(incoming.message)
-                    setHit(true)
-                break;
-            }
-        }
-    }
 
     const SetSunkShip = (shipSunk : boolean) => {
         if(shipSunk){
@@ -667,18 +623,21 @@ const NewBoard = () : JSX.Element => {
             setBoard(copyBoard)
             SetSunkShip(SunkShip());
 
-            socket.send(JSON.stringify({id : "hit", message : "target hit!"}))
         }
         else{
          //   alert("miss")
         }
     }
 
+    useEffect(() => {
+        UpdateBoard()
+
+    },[UpdateBoard])
+
     
     return (
         <div>
             <RenderBoard/>
-            <Web/>
             <br>
             </br>
             <h1>Player attack</h1>
